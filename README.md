@@ -166,3 +166,45 @@ Documentation and lab work for VSD CMOS Circuit Design using Sky130 technology.
      Click the forwarded address and click on "vnc_lite.html" as shown in below image — it opens a Linux desktop in your browser:
      <img width="1908" height="1020" alt="image" src="https://github.com/user-attachments/assets/999a3b84-baae-4dfc-954f-6e163abcf1c7" />
         Use this environment to visualize ngspice plots and waveforms interactively.
+
+   ### 
+
+- Open GitHub Codespaces
+
+-  Open Terminal
+
+- Clone the workshop repository:
+
+`
+git clone https://github.com/kunalg123/sky130CircuitDesignWorkshop.git`
+
+ - Navigate to the design directory:
+
+`cd sky130CircuitDesignWorkshop/design`
+<img width="1642" height="295" alt="image" src="https://github.com/user-attachments/assets/df8a9881-1edd-4f5e-9af4-d702839381bf" />
+
+ the `sky130_fd_pr` directory contains cells, models and tech files
+<img width="1920" height="1080" alt="image" src="https://github.com/user-attachments/assets/c896178a-f614-4131-91da-cf25cf2b1f71" />
+
+In the cells files ,it contains nfet and pfet cells, these only two cells we will be using in this entire workshop.
+
+the nfet has spice libraries at different corners, we will be considering one such typical corner.
+<img width="1920" height="1080" alt="image" src="https://github.com/user-attachments/assets/ec5129e2-329e-4157-a5f5-60c3193892ae" />
+We get all the model parameters required for the process
+<img width="1920" height="1080" alt="image" src="https://github.com/user-attachments/assets/dae233fd-4399-406c-9e9c-af8ff0448fb3" />
+If we go to `less sky130_fd_pr__nfet_01v8__tt.corner.spice` , it contains different W and L values , which is pre defined . For this simulation, one of the available values is chosen.
+<img width="1920" height="1080" alt="image" src="https://github.com/user-attachments/assets/e3cf04ea-854b-4d18-bd4a-da9800ff7e7c" />
+
+Next, navigate to the `models` directory and open the `lib.spice` file. This file contains different library definitions for NMOS and PMOS devices.
+<img width="1920" height="1080" alt="image" src="https://github.com/user-attachments/assets/2da59857-4efa-49dd-bc59-566548071575" />
+
+The library includes various process corner files such as Typical-Typical (TT), Slow-Fast (SF), Fast-Slow (FS), and Fast-Fast (FF). These corner models are used to study the behaviour of transistors under different manufacturing conditions.
+<img width="1920" height="1080" alt="image" src="https://github.com/user-attachments/assets/61f52847-b4f2-4968-9d90-68e75d718c24" />
+<img width="1920" height="1080" alt="image" src="https://github.com/user-attachments/assets/71ec4beb-42c8-41e0-b0de-f023a7c3453a" />
+
+Go to `design` directory and choose `day1_nfet_idvds_L2_W5.spice`
+
+Here ,ew can see we are including the library file , here we are doing the typical corner (tt) --> if wanted to do Slow-Slow corner replace 'tt' with 'ss' 
+if we see spice syntax , we we see it in this order - transistor -> drain vge -> gate-> source-> substrate-> transistor technology file-> width of gate -> length
+
+ here , Vgs is sweeping from 0 to 1.8V, with the step of 0.2V 
