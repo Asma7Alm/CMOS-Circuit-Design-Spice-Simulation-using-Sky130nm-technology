@@ -128,6 +128,25 @@ Documentation and lab work for VSD CMOS Circuit Design using Sky130 technology.
     - [L3 Smart SPICE simulation for device variations](#)
 
     - [L4 Conclusion](#)
-
+   
     - [L5 Sky130 device variations labs](#)
+   
+  # NgspiceSky130-Day1-Basics of NMOS Drain Current(Id) vs Drain-to-source Voltage(Vds)
+
+  ## Introduction to Circuit Design and Spice Simulations
+
+  ### L1 Why do we need SPICE simulations?
+
+  ---------
+  # Introduction to SPICE
+ 
+       
+  ## L4 First SPICE simulation
+
+  ### 1. Launch the Codespace
+  
+  ### From your GitHub repository page:
+  <img width="1122" height="596" alt="image" src="https://github.com/user-attachments/assets/8bf86a34-8ca0-427f-9c83-f20e50895dc3" />
+
+1.Click on Code → Codespaces → Create codespace on main
 
