@@ -148,5 +148,21 @@ Documentation and lab work for VSD CMOS Circuit Design using Sky130 technology.
   ### From your GitHub repository page:
   <img width="1122" height="596" alt="image" src="https://github.com/user-attachments/assets/8bf86a34-8ca0-427f-9c83-f20e50895dc3" />
 
-1.Click on Code → Codespaces → Create codespace on main
+   1.Click on Code → Codespaces → Create codespace on main
+    GitHub will automatically create a cloud-based Ubuntu environment.
 
+  ### 2. Start ngspice and Verify Installation
+
+  Once inside Codespace, open a terminal and type 
+  `bash
+  ngspice
+   exit`
+   You’ll see the ngspice version banner confirming installation.
+   If ngspice exits successfully, your setup is ready.
+  
+  ### 3. Enable GUI / noVNC Desktop
+    This Codespace comes with a full graphical desktop environment accessible through noVNC. Check the PORTS tab for a forwarded VNC link, typically on port 6080.
+    <img width="1475" height="268" alt="image" src="https://github.com/user-attachments/assets/48dd1473-09fc-4a19-acff-afadd2ac13bb" />
+     Click the forwarded address and click on "vnc_lite.html" as shown in below image — it opens a Linux desktop in your browser:
+     <img width="1908" height="1020" alt="image" src="https://github.com/user-attachments/assets/999a3b84-baae-4dfc-954f-6e163abcf1c7" />
+        Use this environment to visualize ngspice plots and waveforms interactively.
