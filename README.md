@@ -225,6 +225,66 @@ For seeing different Id values at particular Vd and Vgs then left click on it
 <img width="1920" height="1080" alt="image" src="https://github.com/user-attachments/assets/941d0af8-ce33-48f2-941c-b8d8b4f72d1a" />
 
 
+## L2 Drain current vs gate voltage for long and short channel device
 
+compare the two different simulation for Long (length= 1.2 u) channel device and short (length= 0.25u) channel device
+<img width="951" height="387" alt="image" src="https://github.com/user-attachments/assets/e040da19-5ab1-49fc-9542-338575414141" />
+
+For long channel device
+<img width="745" height="722" alt="image" src="https://github.com/user-attachments/assets/9c8ad24f-da2f-4d67-94ce-0a208a3205ee" />
+First observation- For different value of Vgs at one value of Vds (lets take 2.5V) , you will see drain current quadratically increases with increase in gate voltage(Vgs)
+
+For short channel 
+<img width="691" height="557" alt="image" src="https://github.com/user-attachments/assets/1160a762-29c2-4b77-8b48-f665ed35486b" />
+Drain current varies quadratically for small Vgs values and then as the gate valotage increases it varies linearly due to velocity saturation.
+
+now lets do Ids v/s Vgs by keeping Vds constant =2.5V
+
+  First lets see syntax -
+          <img width="532" height="302" alt="image" src="https://github.com/user-attachments/assets/b430c913-a625-4909-a61f-3da1bcb53bb5" />
+         whatever you see in the left hand side is sweeped or tuned at every value of right hand side so Vin will sweeped at every value of Vdd
+
+<img width="838" height="675" alt="image" src="https://github.com/user-attachments/assets/913ad58a-dd12-41ff-8c23-642f8c793439" />
+this plot looks fairly quadratic
+
+Lets compare this plot with short channel one
+<img width="1361" height="682" alt="image" src="https://github.com/user-attachments/assets/c255299a-318d-4b86-92c8-3ca83987d127" />
+
+## L3 Velocity saturation at lower and higher electric fields
+ We see as the Vgs increases in short cahnnel device , drain current increases linearly  due to velocity saturation .
+ One of the effect of short channel is velocity saturation .
+ <img width="1361" height="682" alt="image" src="https://github.com/user-attachments/assets/9f425fe8-1e60-4989-b236-0cbd1553f0e7" />
+
+For lower nodes - 4 regions of operation:  Cut Off, Linear, Saturation and Velocity Saturation 
+   Velocity saturation means velocity is linear function when electric field is lower than critical electric field and velocity becomes constant after elctric field crosses critical electric field.
+<img width="983" height="536" alt="image" src="https://github.com/user-attachments/assets/1644e0aa-9cf1-4a32-b09d-d687f57d7307" />
+    Drain current model 
+    <img width="947" height="463" alt="image" src="https://github.com/user-attachments/assets/530471dd-7e6b-433e-8111-a2b1b7c8f822" />
+
+## L4 Velocity saturation drain current model
+ 
+ <img width="947" height="463" alt="image" src="https://github.com/user-attachments/assets/6e0be203-8d09-414a-ab42-a53c20a270e7" />
+ Current eq as shown above in pic , for lower value of Vds that 'lambda Vds ' term will get vanished.
+ for Vmin we will take the lowest value of among vgt, vds, vgsat. 
+
+ lets do an example
+     here we take Vgs- Vt = Vgt, if Vgt <0 then Id =0 , transistor operates at cuttoff region
+     Vdsat is technology parameter , it tells at what value of Vdsat the device enters the velocity saturation region
+     <img width="956" height="576" alt="image" src="https://github.com/user-attachments/assets/dacd3e3a-27cd-48aa-84da-e8e587ddb3f9" />
+ 
+ <img width="926" height="562" alt="image" src="https://github.com/user-attachments/assets/0dc44d17-0f11-4975-af5e-4de7f5d6d568" />
+ <img width="907" height="557" alt="image" src="https://github.com/user-attachments/assets/a2f5c853-08a7-4c7d-99e3-c9cbd983d3f6" />
+ <img width="902" height="558" alt="image" src="https://github.com/user-attachments/assets/ef2b437f-5d6e-4a93-b5e6-3bdcb0770ef0" />
+  lets expand the eq
+ <img width="1142" height="607" alt="image" src="https://github.com/user-attachments/assets/b7ac0eac-b0b1-4391-a106-6fb9f4a6d0c6" />
+    if we ignore other terms in eq , and keeps w constant and for lower value of L, id increases but its not true practically.
+
+  ### - 2nd obseravtion - for lower value of nodes of device the peak curent reduces and reason is velocity saturation causes devices to saturates early.
+  
+  so peak current value for same W/L ratio is different for long channel device and lower channel device .peak cureent in lower nodes device saturates early.
+  <img width="1357" height="712" alt="image" src="https://github.com/user-attachments/assets/64c0c1ef-d540-42b9-8b31-fdc7ae05a324" />
+
+   open source websites to getting more hands on 
+   <img width="1097" height="192" alt="image" src="https://github.com/user-attachments/assets/63763106-090c-45c2-9561-d754f37dae8b" />
 
 
