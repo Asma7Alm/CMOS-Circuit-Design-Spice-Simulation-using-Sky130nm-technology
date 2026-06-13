@@ -287,4 +287,54 @@ For lower nodes - 4 regions of operation:  Cut Off, Linear, Saturation and Veloc
    open source websites to getting more hands on 
    <img width="1097" height="192" alt="image" src="https://github.com/user-attachments/assets/63763106-090c-45c2-9561-d754f37dae8b" />
 
+## L5 Labs Sky130 Id-Vgs
 
+Simulation for Id vs Vgs for short length device
+<img width="1920" height="1080" alt="image" src="https://github.com/user-attachments/assets/9b97cbd0-d4eb-4b1c-94c8-a75abc89ecf9" />
+
+
+<img width="1920" height="1080" alt="image" src="https://github.com/user-attachments/assets/aeb07f65-71a8-48ef-a5eb-e76c191c31d1" />
+
+  here you can see we are doing for typical corner and w=0.39 l=0.15 and here doing dc simulation and sweeping Vds from 0 to 1.8V with the step of .1 V and sweeping Vgs also with the step of .2 V
+
+<img width="1920" height="1080" alt="image" src="https://github.com/user-attachments/assets/863eb8de-68e7-4546-80a9-4a71d079f5a7" />
+<img width="1920" height="1080" alt="image" src="https://github.com/user-attachments/assets/490768cf-cd10-4dbe-b3cf-bedf3470ea8d" />
+
+<img width="1920" height="1080" alt="image" src="https://github.com/user-attachments/assets/a55346b9-686d-4ce7-bc25-7716264b3d34" />
+<img width="1920" height="1080" alt="image" src="https://github.com/user-attachments/assets/86d06f3b-7a7e-40b4-ae0e-fae36def6991" />
+
+The plot is Id vs Vds for different values of Vgs. We can see for lower values of Vgs it is quadratic behaviour and for higher values of Vgs it is Linear . To see the peak current for Vgs=1.8V, left click on at Vgs=1.8V
+
+<img width="1920" height="1080" alt="image" src="https://github.com/user-attachments/assets/c6c59ef9-9219-478b-b63e-3d5b80e083eb" />
+ peak current is around 197 uA
+
+ If we want to see Id vs Vds 
+ <img width="1920" height="1080" alt="image" src="https://github.com/user-attachments/assets/8f127cf2-fc60-48bf-863d-160e69d18f95" />
+
+<img width="1920" height="1080" alt="image" src="https://github.com/user-attachments/assets/c864db92-81dc-44d8-ab8f-dd46a9a8b7d6" />
+
+  We are again keeping same values  w=0.39 l=0.15 , and keeping Vds constant 1.8 v and sweeping only Vgs values from 0 to 1.8V with the step of .1v
+
+<img width="1920" height="1080" alt="image" src="https://github.com/user-attachments/assets/b625715f-c278-439b-874e-f1875595ce07" />
+
+<img width="1920" height="1080" alt="image" src="https://github.com/user-attachments/assets/cc48312f-712f-4b85-b756-8a506a371842" />
+
+<img width="1920" height="1080" alt="image" src="https://github.com/user-attachments/assets/838ac860-51c5-4ef8-a254-87735d55837f" />
+The above is Id vs Vgs curve keeping Vds constant and due to short channel it is showing linear behaviour for higher values of Vgs
+
+## L6 Labs Sky130 Vt
+
+Calculating threshold voltage for Ig vs Vgs curve 
+
+<img width="1920" height="1080" alt="image" src="https://github.com/user-attachments/assets/e836ef16-772b-44f7-987f-8bbd443ddabc" />
+
+<img width="1920" height="1080" alt="image" src="https://github.com/user-attachments/assets/13521d65-5187-4c28-9804-6e39dcf5c12a" />
+
+For Id vs Vgs curve threshold voltage is somewhere where current starts increasing drastically with small change in Vgs values.
+To plot 'Vt' , we have to take tangent of the slope and extends it on the x-axis( we can do this by moving cursor )
+<img width="1920" height="1080" alt="image" src="https://github.com/user-attachments/assets/5460e800-5e85-4b2d-a552-1c8c65e15cb3" />
+we gets somewhere around  0.78 V
+
+
+
+  
