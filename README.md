@@ -324,7 +324,7 @@ The above is Id vs Vgs curve keeping Vds constant and due to short channel it is
 
 ## L6 Labs Sky130 Vt
 
-Calculating threshold voltage for Ig vs Vgs curve 
+Calculating threshold voltage Vt for Ig vs Vgs curve 
 
 <img width="1920" height="1080" alt="image" src="https://github.com/user-attachments/assets/e836ef16-772b-44f7-987f-8bbd443ddabc" />
 
@@ -335,6 +335,28 @@ To plot 'Vt' , we have to take tangent of the slope and extends it on the x-axis
 <img width="1920" height="1080" alt="image" src="https://github.com/user-attachments/assets/5460e800-5e85-4b2d-a552-1c8c65e15cb3" />
 we gets somewhere around  0.78 V
 
+# CMOS voltage transfer characteristics (VTC)
 
+## L1 MOSFET as a switch
+ We will see mosfet device property from switch point of view 
 
-  
+<img width="1145" height="561" alt="image" src="https://github.com/user-attachments/assets/245b3efa-1fdf-4946-a53d-40dec06e6092" />
+
+MOS device characteristics :
+ This MOS transistor works when |Vgs| > Vt 
+ |Vgs| -> PMOS  +ve Vgs and NMOS -ve Vgs
+
+ |Vgs| > |Vt| , switch closed and device is ON
+
+Now we will bias the MOS :where we will connect NMOS and PMOS and make it behave as CMOS device.
+
+<img width="1242" height="722" alt="image" src="https://github.com/user-attachments/assets/a2a5d02c-7c96-47cc-b0a5-891c8fd12451" />
+
+CMOS means complementary mosfet ; it has complementary logic when one is ON other one is OFF and vice versa
+here , CL is either a long wire or with a short wire with the another CMOS over here
+In NMOS ,Vgs = Vin (gate)- Vss(source)
+In PMOS, Vgs = Vin(gate) -Vdd(source)
+
+# L2 Introduction to standard MOS voltage current parameters
+
+ 
