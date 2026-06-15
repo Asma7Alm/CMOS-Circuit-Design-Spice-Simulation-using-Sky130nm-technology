@@ -251,7 +251,7 @@ Lets compare this plot with short channel one
 <img width="1361" height="682" alt="image" src="https://github.com/user-attachments/assets/c255299a-318d-4b86-92c8-3ca83987d127" />
 
 ## L3 Velocity saturation at lower and higher electric fields
- We see as the Vgs increases in short cahnnel device , drain current increases linearly  due to velocity saturation .
+ We see as the Vgs increases in short channel device , drain current increases linearly  due to velocity saturation .
  One of the effect of short channel is velocity saturation .
  <img width="1361" height="682" alt="image" src="https://github.com/user-attachments/assets/9f425fe8-1e60-4989-b236-0cbd1553f0e7" />
 
@@ -343,7 +343,7 @@ we gets somewhere around  0.78 V
 <img width="1145" height="561" alt="image" src="https://github.com/user-attachments/assets/245b3efa-1fdf-4946-a53d-40dec06e6092" />
 
 MOS device characteristics :
- This MOS transistor works when |Vgs| > Vt 
+ This MOS transistor works when |Vgs| > |Vt| 
  |Vgs| -> PMOS  +ve Vgs and NMOS -ve Vgs
 
  |Vgs| > |Vt| , switch closed and device is ON
