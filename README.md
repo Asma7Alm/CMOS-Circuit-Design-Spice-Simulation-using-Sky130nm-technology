@@ -358,5 +358,30 @@ In NMOS ,Vgs = Vin (gate)- Vss(source)
 In PMOS, Vgs = Vin(gate) -Vdd(source)
 
 # L2 Introduction to standard MOS voltage current parameters
+We trying to get the equivalent circuit of CMOS by varying the boundary conditions when Vin is 'high' and 'low', so that we can get the Voltage Transfer Characteristics (VTC) and therefore calculate the delay of the cell.
+When we take Vin as 'high' and equal to Vdd, PMOS will be OFF and NMOS will be ON
+<img width="1243" height="722" alt="Screenshot 2026-06-13 174913" src="https://github.com/user-attachments/assets/b76722d0-b463-43ac-940f-c82738a010d9" />
+When we take Vin as 'low' or equal to '0', PMOS will be ON and NMOS will be OFF.
+ <img width="1238" height="738" alt="Screenshot 2026-06-15 151413" src="https://github.com/user-attachments/assets/968e9e47-8785-489e-8b87-9acdb56f8b25" />
+So we can see that when Vin=Vdd there is a direct path that exists between Vss and Vout, the capacitor CL discharges through the resistor.
+Similarly when Vin=0 there is a direct path between Vdd and Vout, CL charges
+<img width="1200" height="642" alt="Screenshot 2026-06-15 152414" src="https://github.com/user-attachments/assets/8a83da49-3539-47d5-a7fc-2cf1e542d8ce" />
+Lets give the naming convention of the CMOS
+<img width="1244" height="654" alt="Screenshot 2026-06-15 152824" src="https://github.com/user-attachments/assets/4023d6b5-e74e-4835-b722-a4d1ad668a12" />
+current in both the condition is Idsn(drain to source for NMOS) and Idsp(Drain to source for PMOS) And Idsp = -Idsn, both are opposite in direction to each other.
 
- 
+## L3 PMOS/NMOS drain current vs drain voltage
+<img width="1281" height="733" alt="Screenshot 2026-06-15 154755" src="https://github.com/user-attachments/assets/9402f8fc-82b6-4255-8b40-1ea233d2d258" />
+the curve between Idsn Vs Vdsn and Idsp Vs Vdsp, it is as shown above.
+
+## L4 Step1- Convert PMOS gate-source-voltage to Vin
+There are many voltages but from logic block POV , we will consider only two vpltages Vout , Vin. From these we calculate the VTC and eventually we get to know the delay.
+#### Assumption- 
+Now we will see the steps to obtain Voltage Transfer Characteristics(VTC) for static CMOS inverter: Assumption: Let us assume that it is a long channel device with Vdd=2V
+We will fix the Vgs values as shown below
+We know that Vgsp= Vin-Vdd, So we get the above values.So we get Vin = Vgsp+Vdd, we are trying to convert all the voltages as function of Vin and Vout.
+We will try to plot the graph of PMOS in terms of Idsn, the plot will be as shown below. We can see that the corresponding Vin value of Vgsp is being plotted as shown in the above table.<img width="1301" height="732" alt="Screenshot 2026-06-15 181444" src="https://github.com/user-attachments/assets/340bf594-9f01-45d5-8b5c-811a9da526b1" />
+
+## L5 Step2 & Step3- Convert PMOS and NMOS drain-source-voltage to Vout
+we will be converting the Vdsp as function of output voltage . We know Vdsp = Vout-Vdd.
+ converting Vdsp into Vout. So to get Vout there is a shift of Vdd towards left hand side.
