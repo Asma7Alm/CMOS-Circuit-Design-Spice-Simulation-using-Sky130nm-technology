@@ -416,3 +416,54 @@ Range of voltage we are looking now is 0 - 2V
 - When Vin = 2V, Vout = 0V; NMOS is in linear region and PMOS is Cut Off 
 <img width="1288" height="717" alt="image" src="https://github.com/user-attachments/assets/a225eb8a-ca8e-4000-9c7d-f8324d0cf57c" />
 
+# NgspiceSky130-Day3-CMOS switching threshold and dynamic simulations
+
+## Voltage transfer characteristics-SPICE simulations
+
+## L1 SPICE deck creation for CMOS inverter
+
+Before simulating spice simulation of CMOS we first create spice deck. Spice deck is connectivity information(Netlist). As there is information about substrate, the circuit is as shown below.Here M1 is PMOS and M2 is NMOS
+In this case we are looking at the static characteristics of CMOS
+<img width="475" height="426" alt="image" src="https://github.com/user-attachments/assets/a9dc6f74-5b8b-4669-8ae9-ffd212853e49" />
+
+Next define component values , keeping W/L ratio of both same
+<img width="397" height="426" alt="image" src="https://github.com/user-attachments/assets/72e55491-8a5a-4394-917b-57b60414494a" />
+
+Now assume the Vin and Vout values
+<img width="522" height="438" alt="image" src="https://github.com/user-attachments/assets/562033fc-89b7-44af-adae-fded8dfe3f20" />
+
+Now identify the nodes(*two points betwwen which there is a component*) 
+<img width="715" height="548" alt="image" src="https://github.com/user-attachments/assets/42fb9419-6588-49e6-97da-95db893ff37c" />
+
+Name these nodes . In model file we will mention like, 2.5V input lies between Vin and 0, similarly Vdd lies between vdd and 0.
+<img width="563" height="446" alt="image" src="https://github.com/user-attachments/assets/50190c84-85cd-4b1e-b209-54f6a4eab27b" />
+
+now write *Spice Deck*  
+<img width="1242" height="577" alt="image" src="https://github.com/user-attachments/assets/8d6f4a51-43d6-417f-a0d3-7c04e9fd8c4c" />
+Syntax for MOSFET is drain, gate, substrate, source.
+
+## L2 SPICE simulation for CMOS inverter
+
+<img width="1247" height="562" alt="image" src="https://github.com/user-attachments/assets/1911792b-f31f-474c-aca1-23c7b950a929" />
+<img width="1232" height="567" alt="image" src="https://github.com/user-attachments/assets/ed0e783b-624e-4a69-a421-d6dad9a87f12" />
+
+*simulation commands*
+Here we are sweeping the gate input voltage from 0 to 2.5V and of step size 0.05V , reason we are doing this is to calculate the Vout or waveform at output while we sweep the input voltage because that's the Voltage Transfer Characteristics.
+*Final Step* - is to describe the *Model files*, all the information about the technological parameteres is given inside the model files.
+<img width="1223" height="566" alt="image" src="https://github.com/user-attachments/assets/bb5e8fda-da9f-4783-8623-f81b5d3d609f" />
+
+Now we will do the SPICE simulation for Wn=Wp=0.375u, Ln=Lp=0.25u, Wn/ln=Wp/Lp=1.5. Below is the VTC we get for the above netlist.
+<img width="788" height="638" alt="image" src="https://github.com/user-attachments/assets/c7c0baf3-3cc7-4955-a2be-a0e74b57cf76" />
+
+Next we will get the VTC for Wn= 0.375u, Wp= 0.9375u, Ln,p=0.25u; Wn/Ln=1.5, Wp/Lp=2.5 (PMOS width is 2.5 times more than NMOS)
+<img width="786" height="635" alt="image" src="https://github.com/user-attachments/assets/981c3e8c-3a6b-4b9f-9e7e-97b264099cf7" />
+If we observe this graph is toward middle and the previous graph is left shifted slightly. This happens because NMOS is more stronger than PMOS in previous graph.
+
+## L3 Labs Sky130 SPICE simulation for CMOS
+Plot the VTC characteristics of CMOS inverter.
+<img width="1902" height="975" alt="image" src="https://github.com/user-attachments/assets/6ae7e35c-2fc3-40b9-9ff0-46a07ee0af25" />
+
+We are using both pfet and nfet for CMOS inverter. We can see that W/L ratio of pmos is 2.33 times greater than that of nmos. And we will be sweeping Vin from 0 to 1.8V with step isze of 0.01V and plotting the Vout.
+<img width="1912" height="978" alt="image" src="https://github.com/user-attachments/assets/be907c06-ca47-4d40-b183-cb9dc5e01335" />
+
+
