@@ -385,3 +385,34 @@ We will try to plot the graph of PMOS in terms of Idsn, the plot will be as show
 ## L5 Step2 & Step3- Convert PMOS and NMOS drain-source-voltage to Vout
 we will be converting the Vdsp as function of output voltage . We know Vdsp = Vout-Vdd.
  converting Vdsp into Vout. So to get Vout there is a shift of Vdd towards left hand side.
+<img width="1362" height="467" alt="image" src="https://github.com/user-attachments/assets/7d555d2e-28de-4e74-9f75-4c23ab2ce1f5" />
+We can see that whenever Vout=2V that means Vdsp=0V and Vdd=2V (given), then The current is zero and capacitor at the output is discharged. This is true only when PMOS is in combination with NMOS and forms a CMOS inverter.
+Let us take another example, when Vout=0V, that means -Vdsp=2V and Vdd=2V, so at every gate voltage of Vin we will see a finite current whenever Vout=0V. As Vout=0V, the capacitor is completely discharged and we need to charge that, so that is the charging current required. So, here we get the load curve for PMOS
+<img width="492" height="427" alt="image" src="https://github.com/user-attachments/assets/aea34145-6fb7-4820-b44e-cccbb0219b0d" />
+Now we will try to get the "load curve" for NMOS transistor from this equations.
+<img width="296" height="227" alt="image" src="https://github.com/user-attachments/assets/938b0358-fcf5-4272-8a52-d1bfae701e2f" />
+It is actually simple as Vgsn = Vin and Vdsn = Vout, directly we can get the graphs.
+<img width="447" height="317" alt="image" src="https://github.com/user-attachments/assets/e435c6b1-2c92-4151-86db-a9c74370e10b" />
+<img width="937" height="403" alt="image" src="https://github.com/user-attachments/assets/7adce866-0b66-4455-87da-8105a6247933" />
+
+## L6 Step4- Merge PMOS-NMOS load curves and plot VTC
+
+we will generate the VTC of CMOS by superimposing load curve of NMOS on load curve of PMOS 
+<img width="1315" height="397" alt="image" src="https://github.com/user-attachments/assets/d33f72cc-7b96-40cf-9235-16a37a0df8a0" />
+
+To superimpose both the Load Curves to get the VTC we are doing this to find out the common point between Vin and Vout of both NMOS and PMOS
+<img width="500" height="367" alt="image" src="https://github.com/user-attachments/assets/3110630c-dc3f-4595-9abe-ea69dcba37e7" />
+
+Range of voltage we are looking now is 0 - 2V
+
+- When Vin = 0V, Vout = 2V; PMOS is in Linear region and NMOS is Cut Off .
+
+- When Vin = 0.5V, 1.5V < Vout < 2V; NMOS is in Saturation region and PMOS is in Linear region, this is the area of the CMOS where it lies in very high gain state and 'gain'=cahnge in output per change in input .
+
+- When Vin = 1V, 0.5V < Vout < 1.5V; NMOS and PMOS are in Saturation region.
+
+- When Vin = 1.5V, 0<Vout<0.5V; NMOS is Linear region and PMOS is in Saturation region.
+
+- When Vin = 2V, Vout = 0V; NMOS is in linear region and PMOS is Cut Off 
+<img width="1288" height="717" alt="image" src="https://github.com/user-attachments/assets/a225eb8a-ca8e-4000-9c7d-f8324d0cf57c" />
+
