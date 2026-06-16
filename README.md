@@ -465,5 +465,111 @@ Plot the VTC characteristics of CMOS inverter.
 
 We are using both pfet and nfet for CMOS inverter. We can see that W/L ratio of pmos is 2.33 times greater than that of nmos. And we will be sweeping Vin from 0 to 1.8V with step isze of 0.01V and plotting the Vout.
 <img width="1912" height="978" alt="image" src="https://github.com/user-attachments/assets/be907c06-ca47-4d40-b183-cb9dc5e01335" />
+<img width="1907" height="978" alt="image" src="https://github.com/user-attachments/assets/416e7b3d-4dc1-4344-b378-c02f2711cb9e" />
+VTC of CMOS inverter
+Now we need to know the Switching Threshold from this graph, it is the point when Vin=Vout.
+To zoom in the curve; press righ mouse button + hold it.
+<img width="1913" height="1001" alt="image" src="https://github.com/user-attachments/assets/69067425-a62f-402b-9528-345b29a66815" />
+
+So switching threshold for W/L=2.3 is around 0.876V
+<img width="290" height="57" alt="image" src="https://github.com/user-attachments/assets/9c158b8b-22b5-4d71-9a58-3696d4db1d3b" />
+We will now to the transient analysis:
+For that we will go inside the tansient SPICE file for day3
+<img width="1918" height="977" alt="image" src="https://github.com/user-attachments/assets/f54e63fb-f237-4d7c-a0c1-e64e93aa9c81" />
+<img width="1918" height="982" alt="image" src="https://github.com/user-attachments/assets/1576ae73-8116-4ab7-bc2e-d77c23e51c52" />
+We can see that it is for typical corner as before and the W/L is also same. But now we taking transient pulse from 0v to 1V with shift of 0 with rise time and fall time being 0.1ns and 0.1ns respectively, pulse width of 2ns and total time period of 4ns. Let us run this.
+<img width="1906" height="982" alt="image" src="https://github.com/user-attachments/assets/652fb796-e2e0-4d85-9b1d-3c334d155c09" />
+To calculate rise delay and fall delay, we need to consider 50% of Vdd output curve i.e. at 0.9V; out-in area
+<img width="1887" height="973" alt="image" src="https://github.com/user-attachments/assets/5ef422bf-0f1d-40ca-b0cc-c46e7857e674" />
+<img width="286" height="68" alt="image" src="https://github.com/user-attachments/assets/91762faa-0449-4a1c-a0c0-35e32e4c27cf" />
+herefore Rise delay = 2.47742ns-2.14839ns = 0.32903ns
+
+For fall delay, consider while falling.
+<img width="876" height="675" alt="image" src="https://github.com/user-attachments/assets/781d6c53-2406-4858-aa3a-4692a5e28405" />
+<img width="343" height="68" alt="image" src="https://github.com/user-attachments/assets/9f21bf13-edc8-4947-9b2b-cbc8f5c0ba15" />
+Therefore **Fall Delay** = 4.334ns-4.050ns = 0.285n
+
+# Static behaviour evaluation-CMOS inverter robustness-Switching Threshold
+
+## L1 Switching Threshold, Vm
+Lets compare CMOS of same and different W/L ratio ,shape of VTC in both the cases are same , this shows robustness of CMOS inverter.
+Robustness- when Vin is zero output is high & when Vin is high, output is zero.
+One of the Parameters defining the robustness of CMOS is Switching frequency
+*Switching Thresholds* is a point where Vin=Vout
+<img width="1182" height="560" alt="image" src="https://github.com/user-attachments/assets/5111686a-389b-429d-948a-9b512dc93cce" />
+Let us find out the Switching threshold, in *both* cases switching threshold is different Vm in both the cases by drawing a 45 degree line.
+So, in first case Vm comes out to be somewhere around 0.9V and in second case Vm=1.2V.
+<img width="1168" height="625" alt="image" src="https://github.com/user-attachments/assets/480412fe-0b1d-406c-8756-1fd3220b5f7c" />
+<img width="1150" height="625" alt="image" src="https://github.com/user-attachments/assets/1a042dfe-9cbf-4bc0-9d1e-f419973e6f5b" />
+This is the area where PMOS and NMOS both are in saturation region. Current flows from both the transistor, it is actually a dangerous situation.
+
+## L2 Analytical expression of Vm as a function of (W/L)n and (W/L)p
+Lets continue we were analysing the situation when gate voltage is equal to drain voltage i.e Vin=Vout and that the point where we call switching threshold so we call the threshold point where output switches.
+we will be calculating Vm for both cases same W/L ratio and different one where pmos is greater and also we will defining Vm values and then see what will be the W/L .
+Now lets evaluate the value of Vm as the function of W/L ratio of PMOS
+<img width="520" height="331" alt="image" src="https://github.com/user-attachments/assets/95f57651-11d1-4147-ad22-efcad6ae00b7" />
+<img width="861" height="227" alt="image" src="https://github.com/user-attachments/assets/b67943ba-1189-44a1-9793-50ab6ce67c45" />
+
+## L3 Analytical expression of (W/L)n and (W/L)p as a function of Vm
+
+we will calculate the value of W/L for PMOS and NMOS when Vm is given
+This is a reverse fashion
+calculate W/L ratio of PMOS and NMOS such that Switching threshold is exatly half of the power supply Vdd = 2.5V, therefore required Vm = 1.25V.
+We will start from the current equation itself i.e. Idsn = -Idsp
+<img width="938" height="226" alt="image" src="https://github.com/user-attachments/assets/402ffa21-07d9-44c1-afe4-41e00f7da4c8" />
+Expandind kp and kn as gain factor
+<img width="1023" height="238" alt="image" src="https://github.com/user-attachments/assets/1797f011-7cf9-4def-ab54-0703f5146dc0" />
+<img width="1012" height="247" alt="image" src="https://github.com/user-attachments/assets/3f285183-057b-4838-b8d7-ccfa16bddeda" />
+<img width="936" height="242" alt="image" src="https://github.com/user-attachments/assets/505d5323-cb99-4146-8fbb-cc32637b90d9" />
+<img width="572" height="306" alt="image" src="https://github.com/user-attachments/assets/c8d200db-d945-45f6-8793-db9918bf9ef3" />
+The values of all parameters are available from the model files except Vm. Once Vm is known, the required W/L ratios can be calculated.
+
+Different PMOS and NMOS sizing combinations are then tested to observe their effect on CMOS inverter behavior and switching threshold.
+
+## L4 Static and Dynamic simulation of CMOS inverter
+For (W/L)n = (W/L)p = 1.5
+<img width="790" height="636" alt="image" src="https://github.com/user-attachments/assets/01fb7d8f-953a-44fb-bdcb-e7de877caa54" />
+Transient analysis is used to calculate the rise delay and fall delay of the CMOS inverter.
+<img width="1236" height="566" alt="image" src="https://github.com/user-attachments/assets/b0640f3b-226e-4395-ad75-0763961c6e1a" />
+
+## L5 Static and Dynamic simulation of CMOS inverter with increased PMOS width
+doing the SPICE simulations for increased width of PMOS transistors and compare the results.
+<img width="1240" height="512" alt="image" src="https://github.com/user-attachments/assets/8553e299-364e-420a-8704-1a01f38aacd6" />
+<img width="1237" height="501" alt="image" src="https://github.com/user-attachments/assets/11afdb7c-61cd-4d5a-bb79-1d7b1b82e9ab" />
+<img width="1242" height="507" alt="image" src="https://github.com/user-attachments/assets/1b81a44f-6bfb-482d-bf34-4f08ff50874a" />
+<img width="1213" height="492" alt="image" src="https://github.com/user-attachments/assets/1e28f858-5758-49a4-9273-e5b1babbee8b" />
+
+## L6 Applications of CMOS inverter in clock network and STA
+
+Data set:
+<img width="770" height="279" alt="Screenshot 2026-06-16 234835" src="https://github.com/user-attachments/assets/edc7e5b3-9af5-428b-a5cf-057a93eb7d44" />
+
+From this experiment, a few important observations can be made.
+
+Small variations in PMOS and NMOS dimensions may occur during the fabrication process. However, the CMOS inverter remains fairly robust, and the switching threshold voltage (Vm) does not change significantly for minor size variations.
+
+It is also observed that when the PMOS transistor is sized approximately twice the NMOS transistor, i.e., (W/L)p ≈ 2(W/L)n, the rise delay and fall delay become nearly equal. This balanced behavior provides symmetry in the inverter's switching characteristics.
+
+Such symmetrical operation is desirable in clock buffers and clock inverters, where equal rise and fall delays help maintain accurate timing performance.
+<img width="1157" height="687" alt="image" src="https://github.com/user-attachments/assets/7b46b6f8-9098-47f6-99a4-859a26c4f771" />
+
+<img width="770" height="278" alt="image" src="https://github.com/user-attachments/assets/254cd8bc-1a78-4058-b691-cdb92cf23bb5" />
+
+<img width="1315" height="706" alt="image" src="https://github.com/user-attachments/assets/395d838c-9349-4e2c-8e1c-b05e20570c56" />
+Different types of cells can be selected in the data path depending on the timing requirement. Stronger cells can be used to reduce rise time, fall time, and propagation delay, thereby improving timing performance.
+
+# NgspiceSky130-Day4-CMOS Noise Margin robustness evaluation
+
+## Static behaviour evaluation-CMOS inverter robustness-Noise Margin
+
+## L1 Introduction to Noise Margin
+
+
+
+
+
+
+
+
 
 
