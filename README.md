@@ -564,9 +564,56 @@ Different types of cells can be selected in the data path depending on the timin
 
 ## L1 Introduction to Noise Margin
 
+Next step in determining the CMOS inverter robustness is to identify the noise margin.Any device and logic gates has certain noise maegin
+*Noise Margin* represents the ability of a digital circuit to tolerate unwanted noise without causing an incorrect logic transition.
+<img width="453" height="436" alt="image" src="https://github.com/user-attachments/assets/cab9cbf5-e288-4819-9657-9a57306cfb20" />
+In an ideal Inverter, for inputs 0/1 it gives output as 1/0. The slope of switch is infinite.
+But practically , it has some resistance and capacitance so it will have some finite slope and there will be a delay
+<img width="372" height="343" alt="image" src="https://github.com/user-attachments/assets/c595eacf-a5ac-4c30-a663-ea612988be61" />
+We see that whenever the input is between 0 to VIL(input low voltage); the output will be high 'VOH'
+Any input voltage which lie between VIH (input high voltage) and Vdd ,output will be VOL.
+<img width="361" height="343" alt="image" src="https://github.com/user-attachments/assets/7a354af3-7b94-44af-88b6-d251c8083c76" />
 
+## L2 Noise Margin voltage paramters
+In an ideal inverter, the transition between logic HIGH and logic LOW is very sharp. However, in a practical CMOS inverter, the VTC curve has a finite slope due to device non-idealities.
 
+When the input voltage is below VIL, the output remains close to VOH (logic HIGH). Similarly, when the input voltage is above VIH, the output remains close to VOL (logic LOW).
 
+The points VIL and VIH are obtained from the locations where the slope of the VTC curve is approximately −1. These points are used to determine the noise margins of the inverter.
+
+A larger noise margin indicates better immunity to noise and more reliable circuit operation.
+<img width="732" height="497" alt="image" src="https://github.com/user-attachments/assets/ab4bdef7-450b-4d92-9bb4-245a2aaec6a7" />
+
+## L3 Noise margin equation and summary
+
+we will calculate the noise margin equation, for that we will plot the voltages on the same scale.
+In below image-
+- **Noise Mrgin High** - Any voltage level which lie at the range of VIH and VOH will be detected as logic 1 whether it is input or output of the circuit.
+- **Noise Margin Low** - Any voltage level which lie betwwen the range VIL and VOL will be detected as logic 0
+In the range between VOH and VIL thats called undefined region , can't be either 1 or 0
+<img width="710" height="422" alt="image" src="https://github.com/user-attachments/assets/ede2ad34-1735-4272-af25-8b5e9de1c285" />
+<img width="1312" height="840" alt="image" src="https://github.com/user-attachments/assets/cfe98a3c-be56-4290-b39f-de6fe0189cb0" />
+
+## L4 Noise margin variation with respect to PMOS width
+
+Here we will see by increasing the size of PMOS w.r.t NMOS by some integer of NMOS how does the value of *Noise Margin* high and low will raise and depending on these noise margin will decide the robustness CMOS to the noise margin.
+So first we will findout the point on this particular curve when the slope is negative 1 and extend them.
+<img width="1292" height="685" alt="image" src="https://github.com/user-attachments/assets/f06723a0-89d1-4b0b-a112-93487ff85077" />
+
+<img width="1215" height="681" alt="image" src="https://github.com/user-attachments/assets/823d99c8-4db1-461d-8253-28301c32f7bc" />
+As the noise margin increases, the CMOS inverter becomes more reliable and less sensitive to external noise disturbances
+<img width="1222" height="528" alt="image" src="https://github.com/user-attachments/assets/126e23ed-6315-4495-b3f9-c69da5333cef" />
+<img width="1228" height="526" alt="image" src="https://github.com/user-attachments/assets/69a6357c-af99-4826-81d7-3ed6ab3165d2" />
+<img width="1222" height="522" alt="image" src="https://github.com/user-attachments/assets/236c925d-cdc8-4553-b4db-0ec993d5db97" />
+From the simulation results, it is observed that increasing the PMOS width beyond a certain value does not significantly improve the noise margin. For the higher W/L ratios considered, the noise margin remains nearly constant, indicating that the inverter has reached a stable operating region.
+<img width="732" height="253" alt="image" src="https://github.com/user-attachments/assets/bc34d0a3-4bf6-4f6b-ac36-8b9b8ad0bb1a" />
+This behavior demonstrates the robustness of the CMOS inverter against device size variations.
+
+The VTC and noise margin analysis also help in identifying the transition region between analog and digital operation of the inverter. Outside the transition region, the inverter behaves as a digital circuit, while within the transition region it exhibits analog characteristics.
+<img width="707" height="597" alt="image" src="https://github.com/user-attachments/assets/0347e829-5ee8-4692-aff5-550cae4982de" />
+<img width="736" height="566" alt="image" src="https://github.com/user-attachments/assets/2d67e691-8692-4a3b-9704-65c0f18d77ba" />
+
+## L5 Sky130 Noise margin labs
 
 
 
