@@ -671,8 +671,11 @@ To calculate the supply variation lets go to day5...
 The supply voltage (VDD) is swept from 1.8 V to 0.8 V with a step size of 0.2 V. Therefore, six different VTC curves are obtained, corresponding to six supply voltage values: 1.8 V, 1.6 V, 1.4 V, 1.2 V, 1.0 V, and 0.8 V.
 <img width="1887" height="981" alt="image" src="https://github.com/user-attachments/assets/f913268a-5289-43ed-ac2a-6d6e08e97376" />
 
+
 Calculate the gain
+
 - For vdd = 1.8V
+
 <img width="272" height="77" alt="image" src="https://github.com/user-attachments/assets/dc02fc1f-8dbe-489c-bb42-2836b7d60502" />
 |Gain|= 8.1802
 
@@ -683,6 +686,85 @@ Calculate the gain
 ## Static behaviour evaluation-CMOS inverter robustness-Device variation
 
 ## L1 Sources of variation - Etching process
+
+So We will identify the sources of variation of VTC characteristics in a CMOS inverter.
+
+First source of varaiation is Etching ; it is process that defines width and height of the structure
+It will directly effects the delay
+In the layout of single inverter , we will see the length of gate, the width(common area between polysilicon and diffusion, we see different metals representing different metal area and we get particular shapes ,structure of each of metal area through Etching ;due to etching process there can be a variation in length and width of CMOS.
+<img width="1141" height="515" alt="image" src="https://github.com/user-attachments/assets/aacb1c66-ca4a-426b-99f0-f1b83b13db43" />
+
+The figure shows an inverter chain consisting of multiple CMOS inverters connected in series. Due to manufacturing variations, each inverter may have slightly different characteristics, which can affect the overall performance of the chain.
+<img width="1282" height="652" alt="image" src="https://github.com/user-attachments/assets/1082d29c-4991-4b3f-b7b1-1e0839fd68cc" />
+<img width="965" height="667" alt="image" src="https://github.com/user-attachments/assets/adb99d74-5882-4f26-bf44-53bf539cc520" />
+The amount of variation is usually greater at the edges than at the center.
+<img width="1343" height="705" alt="image" src="https://github.com/user-attachments/assets/4ef4eec6-afaf-44df-a073-c6aa3f0ef2a6" />
+Since W and L may change because of this variation, the drain current of the CMOS inverter is also affected.
+<img width="857" height="532" alt="image" src="https://github.com/user-attachments/assets/e7090223-7b7a-4c54-9534-056ecd989ec7" />
+
+## L2 Sources of variation - Oxide thickness
+
+When you try to see the cross sectional view of the transistor, here we will see Gate oxide and we will be talking about oxide thickness;We will see the oxide under polysilicon gate, while fabricating the thickness can vary.
+<img width="1332" height="591" alt="image" src="https://github.com/user-attachments/assets/0a3cd1cf-cfc7-4628-b1a5-d3e27dc547f8" />
+Here in Real fabrication , thickness of oxide channel is not constant
+<img width="1222" height="713" alt="image" src="https://github.com/user-attachments/assets/ab9027d4-dead-498b-8c90-0e25aadacda0" />
+Variation in the transistor in the sides will be more as they are exposed to the other structure
+<img width="1345" height="672" alt="image" src="https://github.com/user-attachments/assets/d85979ec-5663-4304-9043-c4727f76a2bb" />
+**Cox**= Eox/tox , so drain current directly get impacted by the oxide thickness;the more oxide thickness variation is the more the Id variation
+
+## L3 Smart SPICE simulation for device variations
+
+In this section, SPICE simulations are performed to study device variations and verify the robustness of the CMOS inverter under different operating conditions.
+Experiments are planned like we have a strong PMOS and weak NMOS; strong means - wide pmos -> low resistance path for output; weak nmos-> resistance is very high-less width
+<img width="1147" height="377" alt="image" src="https://github.com/user-attachments/assets/db0d103a-894f-4f4e-83ba-91327c630559" />
+<img width="472" height="351" alt="image" src="https://github.com/user-attachments/assets/8997a7c1-77cf-4835-b267-2dcdae26deab" />
+<img width="883" height="697" alt="image" src="https://github.com/user-attachments/assets/d88f28e5-f344-4b01-9016-2e7b4eb568ff" />
+<img width="877" height="701" alt="image" src="https://github.com/user-attachments/assets/6c088b11-2cb4-4940-b5dd-e94cb698f7a1" />
+<img width="876" height="700" alt="image" src="https://github.com/user-attachments/assets/649d3fbb-f1eb-4fc2-8a5b-e1e710ed34fa" />
+<img width="786" height="632" alt="image" src="https://github.com/user-attachments/assets/ca8b4723-0aff-423b-ad5b-f45ab4f5c09f" />
+
+
+## L4 Conclusion
+
+Here we will talk about switching threshold and
+we have tested the wide range of voltage and so changes in switching threshold does not change the behaviour of inverter and thats the robustness of cmos
+<img width="887" height="705" alt="image" src="https://github.com/user-attachments/assets/36bedd7c-39dc-41ff-af1b-78808d105d43" />
+The Switching threshold 'Vm' is shifted right in case of strong PMOS and shifted left in case of Strong NMOS
+<img width="942" height="543" alt="image" src="https://github.com/user-attachments/assets/8faac7d4-fbbd-44d9-add7-9d90243cb676" />
+CMOS inverter is not very responsive of variation we see across; you vary the supply voltage , device but operation of CMOS inverter is kept intact
+so this inverter logic can be used to make varoius logic gate i.e AND, NAND etc.
+THere not much variation in NOise Margins in both the extreme cases, that means it behaves as a robust inverter in both the cases.
+<img width="527" height="171" alt="image" src="https://github.com/user-attachments/assets/9487ecce-3123-4a36-96d3-fb3ac4685bdd" />
+
+
+## L5 Sky130 device variations labs
+
+We will now do the SPICE simulations for the device variation
+<img width="1902" height="981" alt="image" src="https://github.com/user-attachments/assets/9276cc1d-58ca-42e7-8496-74736aa73b4a" />
+<img width="1901" height="972" alt="image" src="https://github.com/user-attachments/assets/344da02e-01c6-41bf-89cb-fc0d45f6e7a8" />
+* From the device parameters, we can observe that the PMOS width is significantly larger than the NMOS width.
+* Therefore, this represents a **strong PMOS and weak NMOS** condition.
+* Due to the stronger pull-up network, the switching threshold (**Vm**) shifts towards the right side of the VTC curve.
+* This indicates that a higher input voltage is required before the inverter changes its output state.
+<img width="1897" height="982" alt="image" src="https://github.com/user-attachments/assets/5a4d2b83-0b7c-4b84-a978-0331a8796b4f" />
+<img width="1901" height="977" alt="image" src="https://github.com/user-attachments/assets/29d60c52-5416-40eb-8efa-397e3793d96c" />
+<img width="255" height="37" alt="image" src="https://github.com/user-attachments/assets/19c020f0-8c5b-43f4-9f32-f1acbf9fcdd6" />
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 
