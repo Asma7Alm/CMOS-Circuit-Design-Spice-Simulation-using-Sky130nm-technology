@@ -615,8 +615,74 @@ The VTC and noise margin analysis also help in identifying the transition region
 
 ## L5 Sky130 Noise margin labs
 
+<img width="1902" height="977" alt="image" src="https://github.com/user-attachments/assets/ca07c7ca-9350-4c85-9825-89f813bef31e" />
+Here we are taking the W/L ratio to be 2.77 and we are sweeping the input voltage 0 to 1.8 with the step of 0.01
+<img width="1912" height="967" alt="image" src="https://github.com/user-attachments/assets/9ed97cb5-23f2-4519-9ff7-a8109066d598" />
+<img width="1896" height="977" alt="image" src="https://github.com/user-attachments/assets/f4822dab-e8ec-4632-b3fc-b4ec7ac1464c" />
+<img width="1907" height="972" alt="image" src="https://github.com/user-attachments/assets/e2d58d1e-209b-49d2-a8cb-be991da45d4c" />
+<img width="317" height="82" alt="image" src="https://github.com/user-attachments/assets/e033f9f9-78ae-4fb5-bb0a-92ba582248be" />
+Y-axis is Vout and X-axis is Vin .
+To plot noise margin first we have to consider the point where the slope is -1,Y-axis value will give VOH & VOL and X-value will be VIH & VIL.
+Noise margin NH = VOH - VIH = 1.7-0. = 0.7323
+Noise margin NL = VIL - VOL = 0.7733-0.09523 = 0.6512
 
+# NgspiceSky130-Day5-CMOS power supply and device variation robustness evaluation
 
+## Static behaviour evaluation-CMOS inverter robustness-Power supply variation
+
+## L1 Smart SPICE simulations for power supply variations
+
+Whilw we try to evaluate the CMOS inverter robustness , we need to consider one more that is Power Supply Scaling.
+We need to ensure that CMOS inverter is behaving the same as it should be on scaling power supply scalimg .
+<img width="1077" height="666" alt="image" src="https://github.com/user-attachments/assets/c6b6f4b1-6d37-4667-bd79-8f8bf3f8fea1" />
+<img width="880" height="695" alt="image" src="https://github.com/user-attachments/assets/071fd80e-6a02-4d7d-a0e3-ead9c26b9e3f" />
+<img width="875" height="705" alt="image" src="https://github.com/user-attachments/assets/5e7527ce-e7df-4cdf-8b73-e5601175b135" />
+<img width="881" height="702" alt="image" src="https://github.com/user-attachments/assets/7c704ebf-9d9f-46f4-af9e-57e03791e0c7" />
+plot the VTC charactersitics for Vdd= 2.5V, 2V, 1.5V, 1V, 0.5V;
+<img width="783" height="635" alt="image" src="https://github.com/user-attachments/assets/eb923996-61f3-4bae-ace1-a8fbbe6f9059" />
+
+## L2 Advantages and disadvantages using low supply voltage
+
+We took a CMOS inverter and simulated it against various and we observe that CMOS inverter can operate at volatage as low as 0.5V
+We will se advantages and disadvantages of using low voltages.
+We will start with the first factor i.e *gain* .*Gain* is change in output voltage divided by input voltage.
+<img width="923" height="587" alt="image" src="https://github.com/user-attachments/assets/e4a7205d-3bfc-4ae8-b890-050ee8eb52c6" />
+<img width="947" height="557" alt="image" src="https://github.com/user-attachments/assets/06981999-eade-44f0-9ced-1f4f3aba9a70" />
+
+Let's look at another factor called *Energy*.
+<img width="947" height="578" alt="image" src="https://github.com/user-attachments/assets/f995dc02-5939-49b6-8fc6-cbca791e7a73" />
+<img width="975" height="570" alt="image" src="https://github.com/user-attachments/assets/2774716b-89d7-4ec7-8fe2-fbf3b1e57eea" />
+<img width="961" height="557" alt="image" src="https://github.com/user-attachments/assets/702c0874-d1d1-4ec7-a01b-f58683fd30bd" />
+- *Advantage of low power supply*
+<img width="903" height="342" alt="image" src="https://github.com/user-attachments/assets/ed1de4dd-2fd1-4284-a132-cf50b3c48999" />
+*Disadvantage*-
+Observation:
+- Lower supply voltage causes slower charging and discharging of the load capacitor.
+- Rise time and fall time increase.
+- The inverter becomes slower, which affects circuit speed and performance.
+<img width="982" height="560" alt="image" src="https://github.com/user-attachments/assets/6b27bcbf-9dd9-4901-8846-cea00b81ad6e" />
+
+## L3 Sky130 Supply variation Labs
+
+To calculate the supply variation lets go to day5...
+<img width="1911" height="961" alt="image" src="https://github.com/user-attachments/assets/7989eca6-12db-4e4b-a202-37f67cb144e9" />
+<img width="1902" height="971" alt="image" src="https://github.com/user-attachments/assets/d2697e3b-fb43-4ff9-928f-3089866b84a5" />
+
+The supply voltage (VDD) is swept from 1.8 V to 0.8 V with a step size of 0.2 V. Therefore, six different VTC curves are obtained, corresponding to six supply voltage values: 1.8 V, 1.6 V, 1.4 V, 1.2 V, 1.0 V, and 0.8 V.
+<img width="1887" height="981" alt="image" src="https://github.com/user-attachments/assets/f913268a-5289-43ed-ac2a-6d6e08e97376" />
+
+Calculate the gain
+- For vdd = 1.8V
+<img width="272" height="77" alt="image" src="https://github.com/user-attachments/assets/dc02fc1f-8dbe-489c-bb42-2836b7d60502" />
+|Gain|= 8.1802
+
+-Vdd=0.8V
+<img width="305" height="82" alt="image" src="https://github.com/user-attachments/assets/d697ad0d-7303-425c-b741-80fe6658f8ad" />
+|Gain|= 10.0217
+
+## Static behaviour evaluation-CMOS inverter robustness-Device variation
+
+## L1 Sources of variation - Etching process
 
 
 
