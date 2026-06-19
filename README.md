@@ -121,9 +121,9 @@ Documentation and lab work for VSD CMOS Circuit Design using Sky130 technology.
 
   - [Static behaviour evaluation-CMOS inverter robustness-Device variation](#Static-behaviour-evaluation-CMOS-inverter-robustness-Device-variation)
 
-    - [L1 Sources of variation - Etching process](#[L1-Sources-of-variation-Etching-process)
+    - [L1 Sources of variation - Etching process](#l1-sources-of-variation---etching-process)
 
-    - [L2 Sources of variation - Oxide thickness](#L2-Sources-of-variation-Oxide-thickness)
+    - [L2 Sources of variation - Oxide thickness](#l2-sources-of-variation---oxide-thickness)
 
     - [L3 Smart SPICE simulation for device variations](#L3-Smart-SPICE-simulation-for-device-variations)
 
