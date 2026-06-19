@@ -83,11 +83,11 @@ Documentation and lab work for VSD CMOS Circuit Design using Sky130 technology.
 
   - [Static behaviour evaluation-CMOS inverter robustness-Switching Threshold](#Static-behaviour-evaluation-CMOS-inverter-robustness-Switching-Threshold)
 
-    - [L1 Switching Threshold, Vm](#L1-Switching-Threshold,-Vm)
+    - [L1 Switching Threshold, Vm](#l1-switching-threshold-vm)
 
-    - [L2 Analytical expression of Vm as a function of (W/L)n and (W/L)p](#L2-Analytical-expression-of-Vm-as-a-function-of-(W/L)n-and-(W/L)p)
+    - [L2 Analytical expression of Vm as a function of (W/L)n and (W/L)p](#l2-analytical-expression-of-vm-as-a-function-of-wln-and-wlp)
 
-    - [L3 Analytical expression of (W/L)n and (W/L)p as a function of Vm](#L3-Analytical-expression-of-(W/L)n-and-(W/L)p-as-a-function-of-Vm)
+    - [L3 Analytical expression of (W/L)n and (W/L)p as a function of Vm](#l3-analytical-expression-of-wln-and-wlp-as-a-function-of-vm)
 
     - [L4 Static and Dynamic simulation of CMOS inverter](#L4-Static-and-Dynamic-simulation-of-CMOS-inverter)
 
