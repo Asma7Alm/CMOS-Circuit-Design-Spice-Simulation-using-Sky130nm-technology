@@ -458,6 +458,29 @@ The graph is Id v/s Vds at different Vgs values
 For seeing different Id values at particular Vd and Vgs then left click on it
 <img width="1920" height="1080" alt="image" src="https://github.com/user-attachments/assets/941d0af8-ce33-48f2-941c-b8d8b4f72d1a" />
 
+## L5 SPICE lab with Sky130 models
+Go to inside models folder, we will see `all.spice` file. If we open it we will see the scale of Width and Length.
+<img width="1920" height="1080" alt="Screenshot 2026-06-12 210203" src="https://github.com/user-attachments/assets/9484cf9d-f8c6-43f2-bff4-ef9876937c11" />
+We can see that W and L values are in microns in the initial.
+
+# NgspiceSky130-Day2-Velocity saturation and basics of CMOS inverter VTC
+
+## SPICE simulation for lower nodes and velocity saturation effect
+
+## L1 SPICE simulation for lower nodes
+We have seen the curve for Id vs Vds, for different values of Vgs.
+<img width="938" height="482" alt="Screenshot 2026-06-13 000051" src="https://github.com/user-attachments/assets/1ed48341-5456-40d4-b15d-32406eed6cb8" />
+In the above graph, the region to the left of the curve where Vds = Vgs − Vt represents the Linear Region. The region to the right represents the Saturation Region, where the drain current shows a slight increase. The area below corresponds to the Cutoff Region.
+
+The characteristics shown above are for a long-channel MOSFET.
+
+Next, different values of W and L are considered while keeping the W/L ratio the same. Ideally, the drain current should remain unchanged. However, practical results show some variation.
+
+The SPICE deck shown below uses different values of W and L, while all other parameters remain unchanged.
+
+<img width="907" height="562" alt="image" src="https://github.com/user-attachments/assets/173625c8-292d-4f90-bb27-ec54c11e60b3" />
+
+
 
 ## L2 Drain current vs gate voltage for long and short channel device
 
