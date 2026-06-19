@@ -7,7 +7,7 @@ Documentation and lab work for VSD CMOS Circuit Design using Sky130 technology.
 
   - [Introduction to Circuit Design and Spice Simulations](#introduction-to-circuit-design-and-spice-simulations)
 
-    - [L1 Why do we need SPICE simulations?](#L1-why-do-we-need-spice-simulations?)
+    - [L1 Why do we need SPICE simulations?](#L1-Why-do-we-need-SPICE-simulations?)
 
     - [L2 Introduction to basic element in circuit design-NMOS](#L2-Introduction-to-basic-element-in-circuit-design-NMOS)
 
