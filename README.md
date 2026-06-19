@@ -831,7 +831,7 @@ We see that whenever the input is between 0 to VIL(input low voltage); the outpu
 Any input voltage which lie between VIH (input high voltage) and Vdd ,output will be VOL.
 <img width="361" height="343" alt="image" src="https://github.com/user-attachments/assets/7a354af3-7b94-44af-88b6-d251c8083c76" />
 
-## L2 Noise Margin voltage paramters
+## L2 Noise Margin voltage parameters
 In an ideal inverter, the transition between logic HIGH and logic LOW is very sharp. However, in a practical CMOS inverter, the VTC curve has a finite slope due to device non-idealities.
 
 When the input voltage is below VIL, the output remains close to VOH (logic HIGH). Similarly, when the input voltage is above VIH, the output remains close to VOL (logic LOW).
