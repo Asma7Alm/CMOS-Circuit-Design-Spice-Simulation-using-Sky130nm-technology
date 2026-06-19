@@ -137,6 +137,179 @@ Documentation and lab work for VSD CMOS Circuit Design using Sky130 technology.
 
   ### L1 Why do we need SPICE simulations?
 
+  Circuit design is the logic gates (AND,OR, NOR, INVERTER, BUFFER) made up of PMOS & NMOS transistor connected in a particular fashion which perform required functionality of particular respective case. This is *Circuit Design*.
+
+  What kind of PMOS transistor and what kind of nmos transistor when connected in a certain fashion gives us the required functionality.
+   <img width="393" height="503" alt="image" src="https://github.com/user-attachments/assets/b4cfcd0e-29f5-4685-9073-2a6c10adeebf" />
+   THE above transistor characteristics looks like this:
+  Simuate using Spice to find the delay and so we will get the W/L ratio of the particular transistor.
+  <img width="836" height="736" alt="image" src="https://github.com/user-attachments/assets/de71eca4-f366-4a5d-8c05-e94393780561" />
+  This waveform decide the delay of the particular cell based on value of delay to tune W/L ratio of particular transistor.
+  W/L desides value of current(IdsN) --> value of current decides the waveform shapes --> shape decides the delay of particular cell.
+  So tuning the dalay --> tune the W/L --> using spice simulation.
+
+  **WHy do we need SPICE?**
+  The clock Tree synthesis, crosstalks, and timing are built on SPICE (Simulation Program with Integrated Circuit Emphasis), without SPICE there won't be delays and if there are no delays physical design flow, crosstalk won't make any sense.
+
+Let us say we have done some Clock Tree Synthesis of the circuit shown below with bufffers with different capacitive load at the output
+<img width="1126" height="371" alt="image" src="https://github.com/user-attachments/assets/666114d7-585c-4ed9-8082-a581918ca22b" />
+-After running the SPICE simulation, a delay table is generated.
+-The table contains different values of input slew and output load.
+-The delay corresponding to a particular input slew and output load can be obtained from their intersection in the table.
+-Delay tables are generated for both Level-1 and Level-2 buffers.
+-These values are obtained through circuit characterization using SPICE simulations.
+-SPICE characterization helps in analyzing the timing performance of CMOS logic cells and is widely used in digital circuit design.
+<img width="1268" height="691" alt="image" src="https://github.com/user-attachments/assets/09b3c453-f231-4dd4-af3c-2c6fe927af59" />
+The source of the above Delay Tables comes from circuit design using SPICE simulations. SPICE simulations involves characterisation of any CMOS logic
+
+
+## L2 Introduction to basic element in circuit design-NMOS
+
+**NMOS**(n-channel metal oxide semiconductor transistor)
+- 4 terminal
+- consists of P-substrate
+- heavily doped with n+ region
+- isolation rgion(SiO2) - (left hand side and right hand side) used to differentiate b/w 2 different transistors. Anything occur in one transistor not impact another another transistor.
+- n+ diffusion region- fabriaction technique
+- The n+ regions are Source and Drain
+- Above it there is an oxide layer, and top of it is metal deposition which is the Gate termianal.
+
+  <img width="1133" height="475" alt="image" src="https://github.com/user-attachments/assets/1b374434-6e2d-4b14-b0b5-8670de06ec8c" />
+
+  **Threshold Voltage**
+  - all the characterisation depends on threshold voltage
+  - first keep Vgs = 0
+  - Drain, source both connected to ground
+  - substrate-source(B-S) and substrate-drain(S-D) form p-n junction diode
+  - P-substrate and n+ act as PN junction diode and as there is no potential so there is a high resistance
+  - No channel formation is there.
+    <img width="1272" height="477" alt="image" src="https://github.com/user-attachments/assets/5cf01991-fa33-42c8-8c33-977305c3a06b" />
+     We will see gate is now positively charged and due to this there will be Accumulation of negative charges at the surface of substrate
+    <img width="1276" height="487" alt="image" src="https://github.com/user-attachments/assets/a561aeec-eea7-45fe-b88d-ce21be0739b4" />
+
+    ## L3 Strong inversion and threshold voltage
+
+    Due to the accumulation of negative charges near the surface, a depletion region is formed. In this region, the majority carriers (holes) are repelled, resulting in a carrier-depleted region.
+    <img width="520" height="437" alt="image" src="https://github.com/user-attachments/assets/011ec3e5-32d7-4d15-b95c-722c8696d01b" />
+    - As the gate voltage increases further, the holes (majority carriers) are pushed away from the surface, causing the depletion region to widen.
+    - With a further increase in gate voltage, electrons start accumulating near the surface.
+    - At a particular gate voltage, the surface changes from p-type to n-type. This phenomenon is called surface inversion or strong inversion.
+    - The gate-to-source voltage (Vgs) at which strong inversion occurs is known as the threshold voltage (Vt).
+
+      <img width="1273" height="492" alt="image" src="https://github.com/user-attachments/assets/f815dc9f-a598-4c20-9fa5-67246971b162" />
+      When the gate voltage (Vgs) is increased beyond the threshold voltage, more electrons are attracted towards the surface.
+      - These electrons are supplied by the heavily doped n+ source and drain regions.
+      - As the electron concentration increases, a continuous conductive path is formed between the source and drain.
+      - This conductive path is called the inversion channel or NMOS channel.
+      - Once the channel is formed, current can flow from drain to source when a drain voltage is applied.
+     
+        <img width="1280" height="527" alt="image" src="https://github.com/user-attachments/assets/64e3739b-eae3-4154-9dd9-bc968f899adf" />
+        <img width="1263" height="630" alt="image" src="https://github.com/user-attachments/assets/1cec7122-fde6-4627-9379-00c8424a2093" />
+        As the inversion channel is formed, a conductive path now exists between the source and drain regions. However, since no drain voltage (Vds = 0) is applied, electrons do not flow through the channel and no drain current is produced. This operating condition is known as the cutoff (or no-current) state.
+
+Next, we investigate how changing the body (substrate) potential affects the threshold voltage and overall MOSFET behavior.
+
+<img width="1160" height="502" alt="image" src="https://github.com/user-attachments/assets/a5285230-9ead-4fae-9324-4c92a51e6b43" />
+There will be increase in depletion region between source and body terminal.
+<img width="1150" height="587" alt="image" src="https://github.com/user-attachments/assets/3fbbc19d-5c63-49ac-a86c-e5d7cf1b2fda" />
+
+
+## L4 Threshold voltage with positive substrate potential
+
+If we increase Vgs, we will see that the depletion region increase in both the cases. But, in second case as there is Vsb +ve, few charges from channel will be pulled towards the source.
+- increasing the VGS
+- depletion layer increase
+- accumulation of -ve charges
+- due to +ve Vsb , few charges from channel are pulled towards source 'S'
+
+<img width="1167" height="611" alt="image" src="https://github.com/user-attachments/assets/94c0c242-ffe4-4201-b444-291bab76b2fb" />
+Due to this the surface inversion will be slower in second case. Therefore some extra potential has to be apllied in second case to create inversion.
+<img width="1287" height="692" alt="image" src="https://github.com/user-attachments/assets/4ec131af-8fcb-45c6-a6d8-e09346476f44" />
+<img width="657" height="257" alt="image" src="https://github.com/user-attachments/assets/dded44ed-62fd-43c0-a1d6-f8c5c9f59868" />
+The parameters such as Gamma are obtained from the foundry model files. Using these parameters, SPICE simulations can be performed to determine the threshold voltage (Vt) of the MOSFET.
+<img width="1308" height="652" alt="image" src="https://github.com/user-attachments/assets/cfbff854-c181-4d8e-949d-2b0341f98835" />
+
+
+# NMOS resistive region and Saturation region of operation
+
+##L1 Resistive region of operation with small drain-source voltage
+
+Previously, the MOSFET operation in the Cutoff Region was studied. Now, by applying a drain-to-source voltage (Vds), the operation in the Linear (Resistive) Region can be observed.
+As the gate-to-source voltage (Vgs) increases, the channel becomes wider, allowing more current to flow between the source and drain.
+<img width="1275" height="472" alt="image" src="https://github.com/user-attachments/assets/47787e09-b3c7-4f3c-97cc-4f5feacee6c0" />
+The above relation shows that the induced charge is proportional to (Vgs − Vt).
+Now, a very small Vds is applied while keeping Vt = 0.45 V. Initially, Vgs is also kept at a small value.
+Under these conditions, a channel is formed and a small current starts flowing through it.
+<img width="1292" height="490" alt="image" src="https://github.com/user-attachments/assets/391e1a67-4a64-4303-aa1e-fa4c60bf0432" />
+The source is connected to ground, while the drain is maintained at a positive potential. Therefore, a voltage gradient is created across the channel from source to drain.
+<img width="1266" height="577" alt="image" src="https://github.com/user-attachments/assets/81711e6c-e0ed-4702-8c85-07c23d0d7ee0" />
+It can be observed that the effective channel length is smaller than the original channel length.
+<img width="1317" height="572" alt="image" src="https://github.com/user-attachments/assets/f17fbe2b-29db-4c3c-b431-1d35b8e95ee7" />
+Here, the y-axis represents the channel width of the transistor, while the x-axis represents the voltage across the channel.
+
+When Vds is applied, the voltage varies along the channel length. Therefore, each point in the channel experiences a different value of (Vgs − V(x)), which determines the amount of charge present in the channel and hence the drain current.
+<img width="791" height="562" alt="image" src="https://github.com/user-attachments/assets/d7f0eec4-6d0e-4ffb-aa81-c00feff346da" />
+
+## L2 Drift current theory
+
+The effective channel voltage varies along the channel length. For example, at x = 0, V(x) = 0, therefore Vgs − V(x) = Vgs.
+As we move towards the drain, the channel voltage increases. For instance, if Vds = 0.05 V, then at the drain end Vgs − V(x) becomes smaller.
+Since the induced charge is proportional to the effective channel voltage (Vgs − V(x)), the induced charge decreases as we move from source to drain.
+<img width="455" height="161" alt="image" src="https://github.com/user-attachments/assets/db501238-389f-4b8b-910e-b377325d20a4" />
+<img width="386" height="412" alt="image" src="https://github.com/user-attachments/assets/ee82dbb3-819b-4dce-ab5d-4005b3012a76" />
+From the device point of view, we have two kinds of current
+1. *Drift current*= current due to potential difference
+2. *Diffusion current*= current due to difference in carrier concentration
+<img width="1271" height="635" alt="image" src="https://github.com/user-attachments/assets/0f22009a-48c3-43dd-b559-a1e355fc7db5" />
+To derive the drain current equation, the transistor is analyzed using its top-view representation.
+<img width="1228" height="740" alt="image" src="https://github.com/user-attachments/assets/8e18dedf-7a50-42cd-b5ee-7d0aa384d4b6" />
+
+
+## L3 Drain current model for Linear region of operation
+
+Since the voltage varies along the channel length, the electric field also varies from one point to another. As a result, the carrier velocity changes along the channel because velocity depends on the mobility and the electric field.
+<img width="436" height="681" alt="image" src="https://github.com/user-attachments/assets/a44f493b-3666-4fc2-9d5a-0dae2599e5b9" />
+To obtain the drain current equation, the above expression is integrated. The limits for dV are taken from 0 to Vds, while the limits for dx are taken from 0 to L, where L is the channel length.
+<img width="471" height="490" alt="image" src="https://github.com/user-attachments/assets/8edd2b73-297c-43ac-8acd-5f602ed691d7" />
+Cox, W/L, Vgs, un and Vt are the 'technology parameters', we will simulate usinf SPICE and find out the characteristics.
+<img width="457" height="216" alt="image" src="https://github.com/user-attachments/assets/3625ad6e-2821-4984-b5ee-aacaaf56b32a" />
+Although this region is often called the Linear Region, the drain current is not strictly linear with Vds. The drain current expression contains a quadratic term of Vds.
+We will now substitute the given values and calculate the drain current (Id).
+<img width="737" height="432" alt="image" src="https://github.com/user-attachments/assets/d4ca25d3-8bd8-4b05-9828-a045a5362ca8" />
+To make device to operate in linear region of operation ; Vds >= (Vgs-Vt)
+For every value of Vgs we can sweep from 0 to (Vgs-Vt)
+<img width="752" height="477" alt="image" src="https://github.com/user-attachments/assets/ca60812d-cbae-44aa-8a7d-5898dd06d4c4" />
+
+*NOW How do we Calculate Id for Differennt Values og 'Vgs', sweep Vds till (Vgs-Vt) using linear equation for Id*
+Ans is *Using Spice Simulation*
+
+## L4 SPICE conclusion to resistive operation
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
   ---------
   # Introduction to SPICE
  
