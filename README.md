@@ -17,7 +17,7 @@ Documentation and lab work for VSD CMOS Circuit Design using Sky130 technology.
 
   - [NMOS resistive region and Saturation region of operation](#NMOS-resistive-region-and-Saturation-region-of-operation)
 
-    - [L1 Resistive region of operation with small drain-source voltage](#L1-Resistive-region-of-operation-with-small-drain-source-voltage)
+    - [L1 Resistive region of operation with small drain-source voltage](#L1-resistive-region-of-operation-with-small-drain-source-voltage)
 
     - [L2 Drift current theory](#L2-Drift-current-theory)
 
