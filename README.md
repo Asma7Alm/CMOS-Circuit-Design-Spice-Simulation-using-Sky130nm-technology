@@ -140,11 +140,13 @@ Documentation and lab work for VSD CMOS Circuit Design using Sky130 technology.
   Circuit design is the logic gates (AND,OR, NOR, INVERTER, BUFFER) made up of PMOS & NMOS transistor connected in a particular fashion which perform required functionality of particular respective case. This is *Circuit Design*.
 
   What kind of PMOS transistor and what kind of nmos transistor when connected in a certain fashion gives us the required functionality.
-   <img width="393" height="503" alt="image" src="https://github.com/user-attachments/assets/b4cfcd0e-29f5-4685-9073-2a6c10adeebf" />
+
+  <img width="393" height="503" alt="image" src="https://github.com/user-attachments/assets/b4cfcd0e-29f5-4685-9073-2a6c10adeebf" />
 
   THE above transistor characteristics looks like this:
 
   Simuate using Spice to find the delay and so we will get the W/L ratio of the particular transistor.
+
   <img width="836" height="736" alt="image" src="https://github.com/user-attachments/assets/de71eca4-f366-4a5d-8c05-e94393780561" />
 
   This waveform decide the delay of the particular cell based on value of delay to tune W/L ratio of particular transistor.
@@ -155,6 +157,7 @@ Documentation and lab work for VSD CMOS Circuit Design using Sky130 technology.
   The clock Tree synthesis, crosstalks, and timing are built on SPICE (Simulation Program with Integrated Circuit Emphasis), without SPICE there won't be delays and if there are no delays physical design flow, crosstalk won't make any sense.
 
 Let us say we have done some Clock Tree Synthesis of the circuit shown below with bufffers with different capacitive load at the output
+
 <img width="1126" height="371" alt="image" src="https://github.com/user-attachments/assets/666114d7-585c-4ed9-8082-a581918ca22b" />
 
 -After running the SPICE simulation, a delay table is generated.
@@ -163,6 +166,7 @@ Let us say we have done some Clock Tree Synthesis of the circuit shown below wit
 -Delay tables are generated for both Level-1 and Level-2 buffers.
 -These values are obtained through circuit characterization using SPICE simulations.
 -SPICE characterization helps in analyzing the timing performance of CMOS logic cells and is widely used in digital circuit design.
+
 <img width="1268" height="691" alt="image" src="https://github.com/user-attachments/assets/09b3c453-f231-4dd4-af3c-2c6fe927af59" />
 
 The source of the above Delay Tables comes from circuit design using SPICE simulations. SPICE simulations involves characterisation of any CMOS logic
