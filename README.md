@@ -276,42 +276,103 @@ Cox, W/L, Vgs, un and Vt are the 'technology parameters', we will simulate usinf
 Although this region is often called the Linear Region, the drain current is not strictly linear with Vds. The drain current expression contains a quadratic term of Vds.
 We will now substitute the given values and calculate the drain current (Id).
 <img width="737" height="432" alt="image" src="https://github.com/user-attachments/assets/d4ca25d3-8bd8-4b05-9828-a045a5362ca8" />
-To make device to operate in linear region of operation ; Vds >= (Vgs-Vt)
-For every value of Vgs we can sweep from 0 to (Vgs-Vt)
+ linear region of operation ; Vds >= (Vgs-Vt)
+
 <img width="752" height="477" alt="image" src="https://github.com/user-attachments/assets/ca60812d-cbae-44aa-8a7d-5898dd06d4c4" />
 
-*NOW How do we Calculate Id for Differennt Values og 'Vgs', sweep Vds till (Vgs-Vt) using linear equation for Id*
-Ans is *Using Spice Simulation*
 
 ## L4 SPICE conclusion to resistive operation
 
+To study the effect of Vgs and Vds on the drain current, different values of Vgs and Vds are considered.
+To make device to operate in linear region of operation ; Vds >= (Vgs-Vt)
+For every value of Vgs we can sweep Vds from 0 to (Vgs-Vt)
+<img width="556" height="137" alt="image" src="https://github.com/user-attachments/assets/9b2fafa9-ecbb-4fed-910a-0814ccf32fcc" />
+*NOW How do we Calculate Id for Differennt Values og 'Vgs', sweep Vds till (Vgs-Vt) using linear equation for Id*
+Ans is *Using Spice Simulation*
+
+## L5 Pinch-off region condition
+
+If Vds exceeds (Vgs − Vt), the device operates in the Saturation Region. By increasing Vds, we can observe how the channel behavior changes near the drain end.
+<img width="932" height="437" alt="image" src="https://github.com/user-attachments/assets/c23fe13d-ecba-45b7-a431-7ed8bd01307a" />
+
+When (Vgs − Vds) > Vt, a continuous channel is present.
+
+When (Vgs − Vds) = Vt, inversion just occurs at the drain end, and the channel begins to disappear from the drain side.
+<img width="921" height="436" alt="image" src="https://github.com/user-attachments/assets/c93b5d90-6358-4a76-98ad-df99ef8e8206" />
+<img width="892" height="426" alt="image" src="https://github.com/user-attachments/assets/16842d55-df8a-47c4-9bdc-2bd3163393bd" />
+**Pinch-off region**- no channel near drain region.
+<img width="842" height="380" alt="image" src="https://github.com/user-attachments/assets/ab7e837e-f085-4112-9948-e5936dc26527" />
+Vgs-Vds<Vt,  no channel present at drain side.
+<img width="881" height="417" alt="image" src="https://github.com/user-attachments/assets/efd6552f-9f19-46bd-abc7-e53c442ad3e9" />
+This operating condition is called the Saturation Region. Further increase in Vds does not extend the channel beyond this point.
+<img width="421" height="112" alt="image" src="https://github.com/user-attachments/assets/cbcb9819-47c9-4084-8bcf-eaf4e88a6b31" />
 
 
+## L6 Drain current model for saturation region of operation
+Voltage over the channel remains constant = Vgs-Vt
+Channel voltage= Vgs-Vds
+To get drain current we will replace Vds as Vgs-Vt.
+In saturation, the channel voltage is limited to (Vgs − Vt) and the drain current no longer depends on Vds. The saturation current equation is obtained by substituting Vds = (Vgs − Vt) into the drain current equation
+<img width="492" height="370" alt="image" src="https://github.com/user-attachments/assets/e48aca24-1605-4216-884e-0e7b1e1c29c0" />
+According to the saturation current equation, the MOSFET appears to behave as an ideal current source, with drain current independent of Vds.
+However, in practice this is not completely true. As Vds increases, the depletion region near the drain expands, causing a reduction in the effective channel length.
+Due to this reduction in channel length, a slight increase in drain current is observed with increasing Vds. Therefore, the drain current shows a small dependence on Vds.
+<img width="727" height="352" alt="image" src="https://github.com/user-attachments/assets/74c10a53-ccd7-4849-9159-301395e0abf8" />
+*Lambda* is called Channel Length Modulation.
+<img width="817" height="142" alt="image" src="https://github.com/user-attachments/assets/09ddfbb9-b62f-4d49-9322-83c647948281" />
 
 
+## Introduction to SPICE
+
+## L1 Basic SPICE setup
+
+Let us first examine the SPICE simulation setup.
+<img width="801" height="396" alt="image" src="https://github.com/user-attachments/assets/fb082359-9914-4740-a023-2c1207024730" />
+Some of the parameters are fixed and are directly obtained from the foundry model files. These parameters do not need to be derived separately.
+The parameters highlighted in yellow are the ones provided by the foundry and are used directly in the simulation.
+<img width="861" height="427" alt="image" src="https://github.com/user-attachments/assets/694cc8e1-6314-4fd1-9991-40ff6c219e41" />
+<img width="852" height="502" alt="image" src="https://github.com/user-attachments/assets/3c743945-1a69-44df-aabb-e5099433f6f2" />
+
+By providing the SPICE model parameters and SPICE netlist to the SPICE engine, the device characteristics are obtained. The results are plotted as Id vs Vds for different values of Vgs.
+The MOSFET is represented in the SPICE netlist as shown in the circuit below.
+<img width="846" height="430" alt="image" src="https://github.com/user-attachments/assets/627e0941-c9db-4549-bcbb-bf4e869f2399" />
 
 
+## L2 Circuit description in SPICE syntax
+
+We will now write the SPICE netlist for the given circuit.
+* To create the netlist, the first step is to assign names to all the nodes in the circuit.
+<img width="710" height="456" alt="image" src="https://github.com/user-attachments/assets/c5f05aaf-0e71-4f31-a4b3-223797c9d5cf" />
+* The components are then defined using these node names. Since the MOSFET has four terminals, it is connected between four different nodes. Similarly, a resistor is connected between two nodes.
+  <img width="806" height="245" alt="image" src="https://github.com/user-attachments/assets/6a606c81-d9b3-4ac7-ba36-b18825f88947" />
+  <img width="857" height="250" alt="image" src="https://github.com/user-attachments/assets/7ae15944-a9f3-424d-b4bb-74992b0d1b90" />
+  <img width="857" height="270" alt="image" src="https://github.com/user-attachments/assets/ea07c331-05cd-4d0b-a805-273d622ddfbd" />
+  <img width="910" height="286" alt="image" src="https://github.com/user-attachments/assets/2b998ac5-0081-4008-817d-01fdce4a641b" />
+  <img width="861" height="262" alt="image" src="https://github.com/user-attachments/assets/85a83305-ffd4-4693-9bb5-8bad844ee5be" />
+In the SPICE netlist, the MOSFET terminals are written in the order Drain, Gate, Source, and Substrate (DGSS).
+<img width="837" height="262" alt="image" src="https://github.com/user-attachments/assets/b158d27e-4eaf-4739-94e5-5f11a8fff475" />
+<img width="877" height="280" alt="image" src="https://github.com/user-attachments/assets/f1d97dd3-f73a-451a-a566-6b23dbd6e544" />
+<img width="832" height="252" alt="image" src="https://github.com/user-attachments/assets/ed14dadc-7698-4ef0-be3a-439ba911d602" />
+This represents a long-channel NMOS device with W = 1.8 µm and L = 1.2 µm. The transistor dimensions are specified directly in the SPICE netlist. Similarly, the resistor can also be defined using its SPICE syntax.
+<img width="831" height="251" alt="image" src="https://github.com/user-attachments/assets/1989aa43-4e6e-4085-a2fa-5e8926fa6276" />
+<img width="840" height="266" alt="image" src="https://github.com/user-attachments/assets/ccfa3a5f-ff3e-4852-a837-a56f8644159b" />
+<img width="772" height="235" alt="image" src="https://github.com/user-attachments/assets/85abd35b-76d8-4d3b-a2fb-90e8b319ebdb" />
+<img width="777" height="237" alt="image" src="https://github.com/user-attachments/assets/bf929800-30e1-48f6-91ee-e29bbdbeafe3" />
+<img width="557" height="336" alt="image" src="https://github.com/user-attachments/assets/14ce39a0-7847-4792-b3f2-d876cb15a2f4" />
 
 
+## L3 Define Technology parameters
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-  
-  ---------
-  # Introduction to SPICE
+We now look at the model used for this NMOS device. The device behavior is described using a set of technology parameters, which are available in the technology files provided by the foundry. The NMOS model can be found in the file corresponding to the NMOS model name.
+<img width="832" height="436" alt="image" src="https://github.com/user-attachments/assets/277ae6fc-58da-4451-a0ef-c6367c453b75" />
+The technology parameters are stored inside the model definition. Similar model files and parameters are also available for PMOS devices.
+<img width="570" height="90" alt="image" src="https://github.com/user-attachments/assets/136ebb1a-9629-4142-94c1-5903bf4cee9d" />
+These ` .mod` model files are included in the simulation setup and called from the top-level SPICE netlist.
+<img width="537" height="172" alt="image" src="https://github.com/user-attachments/assets/15e032ff-9c42-4be7-aefa-969996d1c9ce" />
+<img width="647" height="567" alt="image" src="https://github.com/user-attachments/assets/aba5042a-e1ff-4b29-8667-69b08adad238" />
+<img width="637" height="257" alt="image" src="https://github.com/user-attachments/assets/2bd9c146-af0d-4565-8aec-54ec81e6ff56" />
+In the above netlist, the highlighted line represents a comment and is ignored by the SPICE simulator.
+The next step is to sweep Vgs and Vds to obtain the device characteristics through SPICE simulation.
  
        
   ## L4 First SPICE simulation
