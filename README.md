@@ -232,7 +232,7 @@ The parameters such as Gamma are obtained from the foundry model files. Using th
 
 # NMOS resistive region and Saturation region of operation
 
-##L1 Resistive region of operation with small drain-source voltage
+## L1 Resistive region of operation with small drain-source voltage
 
 Previously, the MOSFET operation in the Cutoff Region was studied. Now, by applying a drain-to-source voltage (Vds), the operation in the Linear (Resistive) Region can be observed.
 As the gate-to-source voltage (Vgs) increases, the channel becomes wider, allowing more current to flow between the source and drain.
