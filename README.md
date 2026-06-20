@@ -473,11 +473,15 @@ The next step is to sweep Vgs and Vds to obtain the device characteristics throu
    If ngspice exits successfully, your setup is ready.
   
   ### 3. Enable GUI / noVNC Desktop
-    This Codespace comes with a full graphical desktop environment accessible through noVNC. Check the PORTS tab for a forwarded VNC link, typically on port 6080.
-    <img width="1475" height="268" alt="image" src="https://github.com/user-attachments/assets/48dd1473-09fc-4a19-acff-afadd2ac13bb" />
-     Click the forwarded address and click on "vnc_lite.html" as shown in below image — it opens a Linux desktop in your browser:
-     <img width="1908" height="1020" alt="image" src="https://github.com/user-attachments/assets/999a3b84-baae-4dfc-954f-6e163abcf1c7" />
-        Use this environment to visualize ngspice plots and waveforms interactively.
+   This Codespace comes with a full graphical desktop environment accessible through noVNC. Check the PORTS tab for a forwarded VNC link, typically on port 6080.
+   
+   <img width="1475" height="268" alt="image" src="https://github.com/user-attachments/assets/48dd1473-09fc-4a19-acff-afadd2ac13bb" />
+    
+  Click the forwarded address and click on "vnc_lite.html" as shown in below image — it opens a Linux desktop in your browser:
+     
+  <img width="1908" height="1020" alt="image" src="https://github.com/user-attachments/assets/999a3b84-baae-4dfc-954f-6e163abcf1c7" />
+       
+  Use this environment to visualize ngspice plots and waveforms interactively.
 
    ### 
 
@@ -650,7 +654,7 @@ For lower nodes - 4 regions of operation:  Cut Off, Linear, Saturation and Veloc
  
  <img width="1142" height="607" alt="image" src="https://github.com/user-attachments/assets/b7ac0eac-b0b1-4391-a106-6fb9f4a6d0c6" />
     
-    if we ignore other terms in eq , and keeps w constant and for lower value of L, id increases but its not true practically.
+   if we ignore other terms in eq , and keeps w constant and for lower value of L, id increases but its not true practically.
 
   ### - 2nd obseravtion - for lower value of nodes of device the peak curent reduces and reason is velocity saturation causes devices to saturates early.
   
@@ -886,6 +890,7 @@ To zoom in the curve; press righ mouse button + hold it.
 <img width="1913" height="1001" alt="image" src="https://github.com/user-attachments/assets/69067425-a62f-402b-9528-345b29a66815" />
 
 So switching threshold for W/L=2.3 is around 0.876V
+
 <img width="290" height="57" alt="image" src="https://github.com/user-attachments/assets/9c158b8b-22b5-4d71-9a58-3696d4db1d3b" />
 
 We will now to the transient analysis:
@@ -897,6 +902,7 @@ For that we will go inside the tansient SPICE file for day3
 We can see that it is for typical corner as before and the W/L is also same. But now we taking transient pulse from 0v to 1V with shift of 0 with rise time and fall time being 0.1ns and 0.1ns respectively, pulse width of 2ns and total time period of 4ns. Let us run this.
 
 <img width="1906" height="982" alt="image" src="https://github.com/user-attachments/assets/652fb796-e2e0-4d85-9b1d-3c334d155c09" />
+
 To calculate rise delay and fall delay, we need to consider 50% of Vdd output curve i.e. at 0.9V; out-in area
 
 <img width="1887" height="973" alt="image" src="https://github.com/user-attachments/assets/5ef422bf-0f1d-40ca-b0cc-c46e7857e674" />
