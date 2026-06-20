@@ -160,12 +160,12 @@ Let us say we have done some Clock Tree Synthesis of the circuit shown below wit
 
 <img width="1126" height="371" alt="image" src="https://github.com/user-attachments/assets/666114d7-585c-4ed9-8082-a581918ca22b" />
 
--After running the SPICE simulation, a delay table is generated.
--The table contains different values of input slew and output load.
--The delay corresponding to a particular input slew and output load can be obtained from their intersection in the table.
--Delay tables are generated for both Level-1 and Level-2 buffers.
--These values are obtained through circuit characterization using SPICE simulations.
--SPICE characterization helps in analyzing the timing performance of CMOS logic cells and is widely used in digital circuit design.
+- After running the SPICE simulation, a delay table is generated.
+- The table contains different values of input slew and output load.
+- The delay corresponding to a particular input slew and output load can be obtained from their intersection in the table.
+- Delay tables are generated for both Level-1 and Level-2 buffers.
+- These values are obtained through circuit characterization using SPICE simulations.
+- SPICE characterization helps in analyzing the timing performance of CMOS logic cells and is widely used in digital circuit design.
 
 <img width="1268" height="691" alt="image" src="https://github.com/user-attachments/assets/09b3c453-f231-4dd4-af3c-2c6fe927af59" />
 
